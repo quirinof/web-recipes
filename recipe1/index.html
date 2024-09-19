@@ -1,19 +1,73 @@
 <!DOCTYPE html>
 <html>
-   <body>
-      <img src="https://akamai.sscdn.co/uploadfile/letras/playlists/3/a/b/9/3ab92363f7974d679f4194de9f389b5b.jpg" width="200"/>
+	<title>First Recipe</title>
+	<head>
+		<style>
+			#bebidas, #petiscos {
+				font-family: Arial, Helvetica, sans-serif;
+				border-collapse: collapse;
+				width: 200px;
+			}
+			
+			#bebidas td, #bebidas th, #petiscos td, #petiscos th{
+				border: 1px solid #ddd;
+				padding: 8px;
+			}
+			
+			#bebidas th, #petiscos th {
+				text-align: center;
+				color: white;
+			}
 
-      <h1>Uma trova...</h1>
+			#bebidas th {
+				background-color: #aa8104;
+			}
 
-      <p>
-         Eu só preciso de hoje<br/>      
-         Pra viver e ser feliz<br/>
-         O passado já me foge<br/>
-         E o futuro nada diz!<br/>
-      </p>
+			#petiscos th {
+				background-color: #aa1a04;
+			}
 
-      <br/>
+			#bebidas td, #petiscos td {
+				text-align: center;
+				background-color: #d1dede;
+				color: black;
+			}
+		</style>
+	</head>
 
-      <p> Autor: Francisco Borges </p>
-   </body>     
+	<body>
+		<img src="https://akamai.sscdn.co/uploadfile/letras/playlists/3/a/b/9/3ab92363f7974d679f4194de9f389b5b.jpg" width="200"/>
+
+		<h1>Uma trova...</h1>
+		<p>
+			Eu só preciso de hoje<br/>      
+			Pra viver e ser feliz<br/>
+			O passado já me foge<br/>
+			E o futuro nada diz!<br/>
+		</p>
+		<br/>
+		<p> Autor: Francisco Borges </p>
+
+		<table id="bebidas" style="float: left; margin-right: 10px;">
+			<tr>
+			  <th>Bebida</th>
+			  <th>Preço</th>
+			</tr>
+			<tr>
+			  <td>Heineken</td>
+			  <td>R$15</td>
+			</tr>
+		</table>
+
+		<table id="petiscos">
+			<tr>
+			  <th>Petiscos</th>
+			  <th>Preço</th>
+			</tr>
+			<tr>
+			  <td>Isca de Peixe</td>
+			  <td>R$30</td>
+			</tr>
+		</table>
+	</body>     
 </html>
