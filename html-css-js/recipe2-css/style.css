@@ -6,25 +6,25 @@ p.mote {
 	color: red;
 }
 
-a.search {
+a.joao {
 	background-color: yellow;
 }
 
-a.search:visited {
+a.joao:visited {
 	color: green;
 }
 
-a.search:hover {
+a.joao:hover {
 	color: blue;
 	text-decoration: none;
 }
 
-a.search:active {
+a.joao:active {
 	color: brown;
 	text-decoration: underline;
 }
 
-img.profile {
+.poeta img {
 	border-radius: 50%;
 	width: 100px;
 }
