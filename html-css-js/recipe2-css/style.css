@@ -1,7 +1,26 @@
-p.verso{
+p.verso {
 	color: blue;
 }
 
-p.mote{
+p.mote {
 	color: red;
+}
+
+a:link {
+	color: red;
+	background-color: yellow;
+}
+
+a:visited {
+	color: green;
+}
+
+a:hover {
+	color: blue;
+	text-decoration: none;
+}
+
+a:active {
+	color: brown;
+	text-decoration: underline;
 }
