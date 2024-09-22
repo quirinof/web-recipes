@@ -6,21 +6,25 @@ p.mote {
 	color: red;
 }
 
-a:link {
-	color: red;
+a.search {
 	background-color: yellow;
 }
 
-a:visited {
+a.search:visited {
 	color: green;
 }
 
-a:hover {
+a.search:hover {
 	color: blue;
 	text-decoration: none;
 }
 
-a:active {
+a.search:active {
 	color: brown;
 	text-decoration: underline;
+}
+
+img.profile {
+	border-radius: 50%;
+	width: 100px;
 }
