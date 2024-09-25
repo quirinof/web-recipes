@@ -5,23 +5,24 @@
    	</head>
 
    	<body>
-		<div id="bebidas">
-			Carregando cervejas...
-		</div>
+		<div id="guiness"></div>
 		
-		<div>
-			<button id="botaoCarregar">Carregue aqui</button>
+		<div id="bebidas">
+			<button id="botaoCarregar">clique aqui</button>
 		</div>  
    	</body>
    
    	<script>
 		function carregarDiv() {
-			let div = document.getElementById("bebidas")
-			div.innerHTML = `<h1>Dados apresentados!</h1>`
+			let div = document.getElementById("guiness")
+			if (div.innerHTML == "") {
+                div.innerHTML = "<h1>dados carregados</h1>";
+            } else {
+                div.innerHTML = "";
+            }
 		}
 
 		let botao = document.getElementById("botaoCarregar")
-		// botao.onclick = carregarDiv
-		botao.addEventListener("click", carregarDiv)           
+		botao.addEventListener("click", carregarDiv)  
 	</script>
 </html>
