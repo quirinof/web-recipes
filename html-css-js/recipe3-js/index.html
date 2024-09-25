@@ -6,14 +6,18 @@
 
    	<body>
 		<div id="bebidas">
-			<button id="botaoCarregar">Carregando cervejas...</button>
-		</div>          
+			Carregando cervejas...
+		</div>
+		
+		<div>
+			<button id="botaoCarregar">Carregue aqui</button>
+		</div>  
    	</body>
    
    	<script>
 		function carregarDiv() {
 			let div = document.getElementById("bebidas")
-			div.innerHTML = `<h1>Cervejas carregadas</h1>`
+			div.innerHTML = `<h1>Dados apresentados!</h1>`
 		}
 
 		let botao = document.getElementById("botaoCarregar")
