@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>   
+   	<head>
+      	<meta charset="UTF-8">      
+   	</head>
+
+   	<body>
+		<div id="bebidas">
+			<button id="botaoCarregar">Carregando cervejas...</button>
+		</div>          
+   	</body>
+   
+   	<script>
+		function carregarDiv() {
+			let div = document.getElementById("bebidas")
+			div.innerHTML = `<h1>Cervejas carregadas</h1>`
+		}
+
+		let botao = document.getElementById("botaoCarregar")
+		// botao.onclick = carregarDiv
+		botao.addEventListener("click", carregarDiv)           
+	</script>
+</html>
