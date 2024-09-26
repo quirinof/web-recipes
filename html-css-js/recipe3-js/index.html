@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>   
    	<head>
-      	<meta charset="UTF-8">      
+      	<meta charset="UTF-8">
+		<link href="style.css" rel="stylesheet"> 
    	</head>
 
    	<body>
@@ -14,15 +15,18 @@
    
    	<script>
 		function carregarDiv() {
-			let div = document.getElementById("guiness")
-			if (div.innerHTML == "") {
-                div.innerHTML = "<h1>dados carregados</h1>";
-            } else {
-                div.innerHTML = "";
+			let div = document.getElementById("guiness");
+			fadeTime = [100, 1000]
+			if (div.classList.contains("show")) { // Fade-out
+				div.classList.remove("show")
+				setTimeout(function() { div.innerHTML = '' }, fadeTime[1])
+            } else { // Fade-in
+				div.classList.add("show")
+				setTimeout(function() { div.innerHTML = '<h1>dados carregados</h1>' }, fadeTime[0])
             }
 		}
 
-		let botao = document.getElementById("botaoCarregar")
-		botao.addEventListener("click", carregarDiv)  
+		let botao = document.getElementById("botaoCarregar");
+		botao.addEventListener("click", carregarDiv);
 	</script>
 </html>

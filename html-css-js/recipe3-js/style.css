@@ -1,0 +1,8 @@
+#guiness {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+#guiness.show{
+    opacity: 1;
+}
