@@ -7,26 +7,41 @@
 
    <body>
       <div id="dados"></div>
-      <br/>
-      <div> 
-         <button id="botaoCarregar">Carregando cervejas...</button> 
-      </div>        
+
+      <div id="bt"> 
+         <button class="botoes" id="botaoCarregar">Carregando cervejas...</button>
+         <button class="botoes" id="botaoOrdenar">Ordenar Cervejas</button> 
+      </div>
    </body>   
 
    <script>
       let cervejas = ["Guiness", "Desperados", "Becks"]
 
       function transformar(item){
-         return `<div>${item}</div>`
+         return `<tr> <td>${item}</td> </tr>`
       }
 
       function carregarDiv(){
          let div = document.getElementById("dados")
-         let cervejasHtml = cervejas.map(transformar) 
-         div.innerHTML = `${cervejasHtml.join("\n")}`
+         let tabela = `<table> <tr> <th>Cervejas</th> </tr>`
+         
+         let cervejasHtml = cervejas.map(transformar)
+
+         tabela += cervejasHtml.join("\n")
+         tabela += `</table>`
+
+         div.innerHTML = tabela
       }
 
-      let botao = document.getElementById("botaoCarregar")
-      botao.addEventListener("click", carregarDiv)                 
+      function ordenarDiv() {
+         cervejas.sort()
+         carregarDiv()
+      }
+
+      let botaoLoad = document.getElementById("botaoCarregar")
+      botaoLoad.addEventListener("click", carregarDiv)
+
+      let botaoOrder = document.getElementById("botaoOrdenar")
+      botaoOrder.addEventListener("click", ordenarDiv)
    </script>
 </html>
