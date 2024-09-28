@@ -6,16 +6,16 @@
    </head>
 
    <body>
-      <div id="dados"></div>
+      <div id="dados"> <button class="botoes" id="botaoCarregar">Carregando cervejas...</button> </div>
 
       <div id="bt"> 
-         <button class="botoes" id="botaoCarregar">Carregando cervejas...</button>
          <button class="botoes" id="botaoOrdenar">Ordenar Cervejas</button> 
+         <button class="botoes" id="botaoEmbaralhar">Embaralhar Cervejas</button> 
       </div>
    </body>   
 
    <script>
-      let cervejas = ["Guiness", "Desperados", "Becks"]
+      let cervejas = ["Guiness", "Desperados", "Becks", "Amstel", "Duvel"]
 
       function transformar(item){
          return `<tr> <td>${item}</td> </tr>`
@@ -38,10 +38,18 @@
          carregarDiv()
       }
 
+      function embaralharDiv() {
+         cervejas.sort((item) => Math.random() - 0.5)
+         carregarDiv()
+      }
+
       let botaoLoad = document.getElementById("botaoCarregar")
       botaoLoad.addEventListener("click", carregarDiv)
 
       let botaoOrder = document.getElementById("botaoOrdenar")
       botaoOrder.addEventListener("click", ordenarDiv)
+
+      let botaoShuffle = document.getElementById("botaoEmbaralhar")
+      botaoShuffle.addEventListener("click", embaralharDiv)
    </script>
 </html>
