@@ -1,23 +1,28 @@
 <!DOCTYPE html>
 <html>   
    <head>
-      <meta charset="UTF-8">      
+      <meta charset="UTF-8">
+      <link href="style.css" rel="stylesheet">      
    </head>
 
    <body>
-      <div id="meu amor"><button id="botaoCarregar">Carregando cervejas...</button></div>            
+      <div id="dados"></div>
+      <br/>
+      <div> 
+         <button id="botaoCarregar">Carregando cervejas...</button> 
+      </div>        
    </body>   
 
    <script>
       let cervejas = ["Guiness", "Desperados", "Becks"]
 
-      //function transformar(item){
-      //   return `<h1>${item}</h1>`
-      //}
+      function transformar(item){
+         return `<div>${item}</div>`
+      }
 
       function carregarDiv(){
-         let div = document.getElementById("meu amor")
-         let cervejasHtml = cervejas.map((cerveja) => { return `<h1>${cerveja}</h1>` }) 
+         let div = document.getElementById("dados")
+         let cervejasHtml = cervejas.map(transformar) 
          div.innerHTML = `${cervejasHtml.join("\n")}`
       }
 
