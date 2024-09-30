@@ -13,19 +13,13 @@
    <script>
       let cervejas = ["Guiness", "Desperados", "Becks"]
 
-      //function transformar(item){ 1º caso
-	  //const transformar = item => { 2º caso
-         //return `<h1>${item}</h1>`
-      //}
-
-      //function carregarDiv(){
-	  const carregarDiv = () => {
+	   const carregarDiv = (cervs) => {
          const div = document.getElementById("dados")
-         const cervejasHtml = cervejas.map( item => `<h1>${item}</h1>`) // 3º caso
+         const cervejasHtml = cervs.map( item => `<h1>${item}</h1>`) // 3º caso
          div.innerHTML = `${cervejasHtml.join("\n")}`
       }
 
       let botao = document.getElementById("botaoCarregar")
-      botao.addEventListener("click", carregarDiv)                 
+      botao.addEventListener("click", () => carregarDiv(cervejas))
    </script>
 </html>
