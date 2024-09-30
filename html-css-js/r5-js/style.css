@@ -1,0 +1,25 @@
+table {
+    width: 50%;
+    border-collapse: collapse;
+    margin: 20px auto;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: black;
+    color: white;
+}
+
+#bt {
+	text-align: center;
+}
+
+.botoes {
+	width: 200px;
+	background-color: greenyellow;
+	border-radius: 10px;
+}

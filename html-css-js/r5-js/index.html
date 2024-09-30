@@ -2,24 +2,51 @@
 
 <html>   
    <head>
-      <meta charset="UTF-8">      
+      <meta charset="UTF-8">
+      <link href="style.css" rel="stylesheet">   
    </head>
 
    <body>
-      <div><button id="botaoCarregar">Carregando cervejas...</button></div>
-      <div id="dados"></div>            
+      <div id="dados"> <button class="botoes" id="botaoCarregar">Carregando times...</button> </div>
+
+      <div id="bt"> 
+         <button class="botoes" id="botaoOrdenar">Ordenar Times</button> 
+         <button class="botoes" id="botaoEmbaralhar">Embaralhar Times</button> 
+      </div>
    </body>   
 
    <script>
-      let cervejas = ["Guiness", "Desperados", "Becks"]
+      let times = ["Vasco da Gama", "Fluminense", "Flamengo", "Botafogo"]
 
-	   const carregarDiv = (cervs) => {
+	   const carregarDiv = (teams) => {
          const div = document.getElementById("dados")
-         const cervejasHtml = cervs.map( item => `<h1>${item}</h1>`) // 3º caso
-         div.innerHTML = `${cervejasHtml.join("\n")}`
+         let tabela = `<table> <tr> <th>Times</th> </tr>`
+
+         const timesHtml = teams.map( item => `<tr> <td>${item}</td> </tr>`)
+
+         tabela += timesHtml.join("\n")
+         tabela += `</table>`
+
+         div.innerHTML = tabela
       }
 
-      let botao = document.getElementById("botaoCarregar")
-      botao.addEventListener("click", () => carregarDiv(cervejas))
+      const ordenarDiv = (teams) => {
+         teams.sort()
+         carregarDiv(times)
+      }
+
+      const embaralharDiv = (teams) => {
+         teams.sort((item) => Math.random() - 0.5)
+         carregarDiv(times)
+      }
+
+      let botaoLoad = document.getElementById("botaoCarregar")
+      botaoLoad.addEventListener("click", () => carregarDiv(times))
+
+      let botaoOrder = document.getElementById("botaoOrdenar")
+      botaoOrder.addEventListener("click", () => ordenarDiv(times))
+
+      let botaoShuffle = document.getElementById("botaoEmbaralhar")
+      botaoShuffle.addEventListener("click", () => embaralharDiv(times))
    </script>
 </html>
