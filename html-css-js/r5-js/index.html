@@ -7,11 +7,11 @@
    </head>
 
    <body>
-      <div id="dados"> <button class="botoes" id="botaoCarregar">Carregando times...</button> </div>
+      <div id="dados"> <a href="#" id="carregar">Carregando times...</a> </div>
 
       <div id="bt"> 
-         <button class="botoes" id="botaoOrdenar">Ordenar Times</button> 
-         <button class="botoes" id="botaoEmbaralhar">Embaralhar Times</button> 
+         <a href="#" id="ordenar">Ordenar Times</a> 
+         <a href="#" id="embaralhar">Embaralhar Times</a> 
       </div>
    </body>   
 
@@ -40,13 +40,13 @@
          carregarDiv(times)
       }
 
-      let botaoLoad = document.getElementById("botaoCarregar")
-      botaoLoad.addEventListener("click", () => carregarDiv(times))
+      let linkLoad = document.getElementById("carregar")
+      linkLoad.addEventListener("click", () => carregarDiv(times))
 
-      let botaoOrder = document.getElementById("botaoOrdenar")
-      botaoOrder.addEventListener("click", () => ordenarDiv(times))
+      let linkOrder = document.getElementById("ordenar")
+      linkOrder.addEventListener("click", () => ordenarDiv(times))
 
-      let botaoShuffle = document.getElementById("botaoEmbaralhar")
-      botaoShuffle.addEventListener("click", () => embaralharDiv(times))
+      let linkShuffle = document.getElementById("embaralhar")
+      linkShuffle.addEventListener("click", () => embaralharDiv(times))
    </script>
 </html>
