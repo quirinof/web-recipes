@@ -1,44 +1,4 @@
-p.verso {
-	color: blue;
-}
-
-p.mote {
-	color: red;
-}
-
-a.joao {
-	background-color: yellow;
-}
-
-a.joao:visited {
-	color: green;
-}
-
-a.joao:hover {
-	color: blue;
-	text-decoration: none;
-}
-
-a.joao:active {
-	color: brown;
-	text-decoration: underline;
-}
-
-.poeta img {
-	border-radius: 50%;
-	width: 100px;
-}
-
-th {
-	background-color: skyblue;
-	width: 200px;
-}
-
-td {
-	text-align: center;
-	background-color: black;
-}
-
-td a {
-	color: white;
+.table {
+  background-color: #f0f0f0;
+  border: 1px solid orange;
 }
