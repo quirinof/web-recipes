@@ -81,7 +81,8 @@
     const carregarDiv = (
       cs,
       id = "cervejasDiv",
-      headers = ["Nome", "Álcool", "Estilo", "Amargor"]
+      headers = ["Nome", "Álcool", "Estilo", "Amargor"],
+      properties = ["name", "alcohol", "style", "ibu"]
     ) => {
       const div = document.getElementById(id);
       let tabela = `<table> <tr>`;
@@ -92,10 +93,11 @@
 
       tabela += `</tr>`;
 
-      const itensHtml = cs.map(
-        ({ name, alcohol, style, ibu }) =>
-          `<tr> <td>${name}</td> <td>${alcohol}</td> <td>${style}</td> <td>${ibu}</td> </tr>`
-      );
+      const itensHtml = cs.map((item) => {
+        return `<tr> ${properties
+          .map((prop) => `<td>${item[prop]}</td>`)
+          .join("")} </tr>`;
+      });
 
       tabela += itensHtml.join("\n");
       tabela += `</table>`;
@@ -104,12 +106,12 @@
 
     let botao = document.getElementById("botaoCarregar");
     botao.addEventListener("click", () =>
-      carregarDiv(cervejas, "botaoCarregar", [
-        "Cerveja",
-        "% Alc.",
-        "Tipo",
-        "IBU",
-      ])
+      carregarDiv(
+        cervejas,
+        "botaoCarregar",
+        ["Cerveja", "Amargor"],
+        ["name", "ibu"]
+      )
     );
   </script>
 </html>
