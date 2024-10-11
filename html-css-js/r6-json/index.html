@@ -84,7 +84,13 @@
       headers = ["Nome", "Álcool", "Estilo", "Amargor"]
     ) => {
       const div = document.getElementById(id);
-      let tabela = `<table> <tr> <th>${headers[0]}</th> <th>${headers[1]}</th> <th>${headers[2]}</th> <th>${headers[3]}</th> </tr>`;
+      let tabela = `<table> <tr>`;
+
+      headers.forEach((header) => {
+        tabela += `<th>${header}</th>`;
+      });
+
+      tabela += `</tr>`;
 
       const itensHtml = cs.map(
         ({ name, alcohol, style, ibu }) =>
