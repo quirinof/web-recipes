@@ -1,0 +1,17 @@
+table {
+  width: 50%;
+  border-collapse: collapse;
+  margin: 20px auto;
+}
+
+th,
+td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+th {
+  background-color: black;
+  color: white;
+}
