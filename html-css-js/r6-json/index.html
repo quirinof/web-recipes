@@ -31,12 +31,15 @@
 
     const carregarDiv = (cs) => {
       const div = document.getElementById("cervejasDiv");
+      let tabela = `<table> <tr> <th>Nome</th> <th>Álcool</th> </tr>`;
 
       const itensHtml = cs.map(
-        ({ name, alcohol }) => `<div>${name} -- ${alcohol}</div>`
+        ({ name, alcohol }) => `<tr> <td>${name}</td> <td>${alcohol}</td> </tr>`
       );
 
-      div.innerHTML = `${itensHtml.join("\n")}`;
+      tabela += itensHtml.join("\n");
+      tabela += `</table>`;
+      div.innerHTML = tabela;
     };
 
     let botao = document.getElementById("botaoCarregar");
