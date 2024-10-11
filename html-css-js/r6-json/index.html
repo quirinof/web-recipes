@@ -78,9 +78,13 @@
 
     //cs é um array de cervejas
 
-    const carregarDiv = (cs, id = "cervejasDiv") => {
+    const carregarDiv = (
+      cs,
+      id = "cervejasDiv",
+      headers = ["Nome", "Álcool", "Estilo", "Amargor"]
+    ) => {
       const div = document.getElementById(id);
-      let tabela = `<table> <tr> <th>Nome</th> <th>Álcool</th> <th>Estilo</th> <th>IBU</th> </tr>`;
+      let tabela = `<table> <tr> <th>${headers[0]}</th> <th>${headers[1]}</th> <th>${headers[2]}</th> <th>${headers[3]}</th> </tr>`;
 
       const itensHtml = cs.map(
         ({ name, alcohol, style, ibu }) =>
@@ -94,7 +98,12 @@
 
     let botao = document.getElementById("botaoCarregar");
     botao.addEventListener("click", () =>
-      carregarDiv(cervejas, "botaoCarregar")
+      carregarDiv(cervejas, "botaoCarregar", [
+        "Cerveja",
+        "% Alc.",
+        "Tipo",
+        "IBU",
+      ])
     );
   </script>
 </html>
