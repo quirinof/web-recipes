@@ -17,14 +17,62 @@
       {
         name: "Guiness",
         alcohol: "10%",
+        style: "Irish Stout",
+        ibu: 50,
       },
       {
         name: "Desperados",
         alcohol: "6%",
+        style: "Lager",
+        ibu: 13,
       },
       {
         name: "Becks",
         alcohol: "5%",
+        style: "Helles Lager",
+        ibu: 20,
+      },
+      {
+        name: "Red Ale",
+        alcohol: "8%",
+        style: "American Amber Ale",
+        ibu: 26,
+      },
+      {
+        name: "English IPA",
+        alcohol: "4%",
+        style: "English India Pale Ale",
+        ibu: 55,
+      },
+      {
+        name: "Imperial Stout",
+        alcohol: "9%",
+        style: "Imperial Stout",
+        ibu: 70,
+      },
+      {
+        name: "Cream Ale",
+        alcohol: "6%",
+        style: "Cream Ale",
+        ibu: 15.7,
+      },
+      {
+        name: "Lager",
+        alcohol: "3%",
+        style: "American Lager",
+        ibu: 15,
+      },
+      {
+        name: "APA",
+        alcohol: "10%",
+        style: "American Pale Ale",
+        ibu: 35,
+      },
+      {
+        name: "Pilsen",
+        alcohol: "8%",
+        style: "Czech Pilsner",
+        ibu: 40,
       },
     ];
 
@@ -32,10 +80,11 @@
 
     const carregarDiv = (cs) => {
       const div = document.getElementById("cervejasDiv");
-      let tabela = `<table> <tr> <th>Nome</th> <th>Álcool</th> </tr>`;
+      let tabela = `<table> <tr> <th>Nome</th> <th>Álcool</th> <th>Estilo</th> <th>IBU</th> </tr>`;
 
       const itensHtml = cs.map(
-        ({ name, alcohol }) => `<tr> <td>${name}</td> <td>${alcohol}</td> </tr>`
+        ({ name, alcohol, style, ibu }) =>
+          `<tr> <td>${name}</td> <td>${alcohol}</td> <td>${style}</td> <td>${ibu}</td> </tr>`
       );
 
       tabela += itensHtml.join("\n");
