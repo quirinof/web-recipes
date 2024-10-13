@@ -27,9 +27,15 @@
     };
 
     async function carregarCervejas() {
-      let res = await fetch("https://random-data-api.com/api/v2/beers?size=3");
-      cervejas = await res.json();
-      carregarDiv(cervejas);
+      try {
+        let res = await fetch(
+          "https://random-data-api.com/api/v2/beers?size=3"
+        );
+        cervejas = await res.json();
+        carregarDiv(cervejas);
+      } catch (err) {
+        document.getElementById("cervejasDiv").innerHTML = "Error";
+      }
     }
 
     let botao = document.getElementById("botaoCarregar");
