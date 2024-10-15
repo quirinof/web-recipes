@@ -20,7 +20,8 @@
       const div = document.getElementById("cervejasDiv");
 
       const itensHtml = cs.map(
-        ({ name, alcohol }) => `<div>${name} -- ${alcohol}</div>`
+        ({ name, alcohol, style, ibu }) =>
+          `<div>${name} -- ${alcohol} -- ${style} -- ${ibu}</div>`
       );
 
       div.innerHTML = `${itensHtml.join("\n")}`;
