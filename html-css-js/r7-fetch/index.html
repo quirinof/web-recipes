@@ -7,22 +7,18 @@
   </head>
 
   <body>
-    <div><button id="botaoCarregar">Carregando cervejas...</button></div>
+    <div><button id="botaoCarregar">Carregando usuarios...</button></div>
 
-    <div id="cervejasDiv"></div>
+    <div id="usuariosDiv"></div>
   </body>
 
   <script>
-    let cervejas = [];
+    let usuarios = [];
 
-    //cs é um array de cervejas
+    //cs é um array de usuarios
 
-    const carregarDiv = (
-      cs,
-      headers = ["Nome", "Álcool", "Estilo", "Amargor"],
-      properties = ["name", "alcohol", "style", "ibu"]
-    ) => {
-      const div = document.getElementById("cervejasDiv");
+    const carregarDiv = (cs, headers = [], properties = []) => {
+      const div = document.getElementById("usuariosDiv");
       let tabela = `<table> <tr>`;
 
       headers.forEach((header) => {
@@ -42,20 +38,24 @@
       div.innerHTML = tabela;
     };
 
-    async function carregarCervejas() {
+    async function carregarUsuarios() {
       try {
         let res = await fetch(
-          "https://random-data-api.com/api/v2/beers?size=3"
+          "https://random-data-api.com/api/v2/users?size=3"
         );
-        cervejas = await res.json();
-        carregarDiv(cervejas);
+        usuarios = await res.json();
+        carregarDiv(
+          usuarios,
+          ["Cliente", "Email", "Telefone"],
+          ["first_name", "email", "phone_number"]
+        );
       } catch (err) {
-        document.getElementById("cervejasDiv").innerHTML = "Erro de requisição";
+        document.getElementById("usuariosDiv").innerHTML = "Erro de requisição";
       }
     }
 
     let botao = document.getElementById("botaoCarregar");
 
-    botao.addEventListener("click", () => carregarCervejas());
+    botao.addEventListener("click", () => carregarUsuarios());
   </script>
 </html>
