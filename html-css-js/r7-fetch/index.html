@@ -3,6 +3,7 @@
 <html>
   <head>
     <meta charset="UTF-8" />
+    <link href="style.css" rel="stylesheet" />
   </head>
 
   <body>
@@ -16,15 +17,29 @@
 
     //cs é um array de cervejas
 
-    const carregarDiv = (cs) => {
+    const carregarDiv = (
+      cs,
+      headers = ["Nome", "Álcool", "Estilo", "Amargor"],
+      properties = ["name", "alcohol", "style", "ibu"]
+    ) => {
       const div = document.getElementById("cervejasDiv");
+      let tabela = `<table> <tr>`;
 
-      const itensHtml = cs.map(
-        ({ name, alcohol, style, ibu }) =>
-          `<div>${name} -- ${alcohol} -- ${style} -- ${ibu}</div>`
-      );
+      headers.forEach((header) => {
+        tabela += `<th>${header}</th>`;
+      });
 
-      div.innerHTML = `${itensHtml.join("\n")}`;
+      tabela += `</tr>`;
+
+      const itensHtml = cs.map((item) => {
+        return `<tr> ${properties
+          .map((prop) => `<td>${item[prop]}</td>`)
+          .join("")} </tr>`;
+      });
+
+      tabela += itensHtml.join("\n");
+      tabela += `</table>`;
+      div.innerHTML = tabela;
     };
 
     async function carregarCervejas() {
@@ -35,7 +50,7 @@
         cervejas = await res.json();
         carregarDiv(cervejas);
       } catch (err) {
-        document.getElementById("cervejasDiv").innerHTML = "Error";
+        document.getElementById("cervejasDiv").innerHTML = "Erro de requisição";
       }
     }
 

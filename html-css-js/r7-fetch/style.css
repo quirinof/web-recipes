@@ -1,0 +1,26 @@
+table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(6, 121, 73, 0.445);
+}
+
+th,
+td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+th {
+  background-color: black;
+  color: white;
+}
+
+table tr {
+  background-color: #aad3cb;
+  color: #0d3510;
+  text-align: left;
+}
