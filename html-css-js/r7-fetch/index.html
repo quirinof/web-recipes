@@ -9,53 +9,32 @@
   <body>
     <div><button id="botaoCarregar">Carregando usuarios...</button></div>
 
-    <div id="usuariosDiv"></div>
+    <div id="bancosDiv"></div>
   </body>
 
+  <script src="./carregar.js"></script>
+
   <script>
-    let usuarios = [];
+    let bancos = [];
 
-    //cs é um array de usuarios
-
-    const carregarDiv = (cs, headers = [], properties = []) => {
-      const div = document.getElementById("usuariosDiv");
-      let tabela = `<table> <tr>`;
-
-      headers.forEach((header) => {
-        tabela += `<th>${header}</th>`;
-      });
-
-      tabela += `</tr>`;
-
-      const itensHtml = cs.map((item) => {
-        return `<tr> ${properties
-          .map((prop) => `<td>${item[prop]}</td>`)
-          .join("")} </tr>`;
-      });
-
-      tabela += itensHtml.join("\n");
-      tabela += `</table>`;
-      div.innerHTML = tabela;
-    };
-
-    async function carregarUsuarios() {
+    async function carregarBancos() {
       try {
         let res = await fetch(
-          "https://random-data-api.com/api/v2/users?size=3"
+          "https://random-data-api.com/api/v2/banks?size=3"
         );
-        usuarios = await res.json();
+        bancos = await res.json();
         carregarDiv(
-          usuarios,
-          ["Cliente", "Email", "Telefone"],
-          ["first_name", "email", "phone_number"]
+          bancos,
+          ["Nº da Conta", "Banco"],
+          ["account_number", "bank_name"]
         );
       } catch (err) {
-        document.getElementById("usuariosDiv").innerHTML = "Erro de requisição";
+        document.getElementById("bancosDiv").innerHTML = "Erro de requisição";
       }
     }
 
     let botao = document.getElementById("botaoCarregar");
 
-    botao.addEventListener("click", () => carregarUsuarios());
+    botao.addEventListener("click", () => carregarBancos());
   </script>
 </html>
