@@ -1,5 +1,5 @@
-const carregarDiv = (items, headers = [], properties = []) => {
-  const div = document.getElementById("bancosDiv");
+const carregarDiv = (element, items, headers = [], properties = []) => {
+  const div = document.getElementById(element);
   let table = "<table> <tr>";
 
   for (const header of headers) {

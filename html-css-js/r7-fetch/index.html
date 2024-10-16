@@ -24,6 +24,7 @@
         );
         bancos = await res.json();
         carregarDiv(
+          "bancosDiv",
           bancos,
           ["Nº da Conta", "Banco"],
           ["account_number", "bank_name"]
