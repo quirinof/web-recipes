@@ -40,16 +40,24 @@
       }
     }
 
-    function chegouRespostaDoFetch(res) {
-      document.getElementById(
-        "cervejasDiv"
-      ).innerHTML = `Resposta do fetch() -- ${res}`;
-    }
+    //function chegouRespostaDoJson(json) {
+    //carregarDiv(json);
+    //}
+
+    //function chegouRespostaDoFetch(res) {
+    //res.json().then(chegouRespostaDoJson);
+    //}
 
     function carregarCervejas2() {
-      let p = fetch("https://random-data-api.com/api/v2/beers?size=3");
-
-      p.then(chegouRespostaDoFetch);
+      fetch("https://random-data-api.com/api/v2/beers?size=3")
+        .then((res) => res.json())
+        .then((json) => carregarDiv(json))
+        .catch(
+          (err) =>
+            (document.getElementById(
+              "cervejasDiv"
+            ).innerHTML = `Fudeu... ${err}`)
+        );
 
       document.getElementById("cervejasDiv").innerHTML = `Fazendo requisição`;
     }
