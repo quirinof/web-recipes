@@ -1,0 +1,32 @@
+table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.445);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+th,
+td {
+  padding: 15px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+th {
+  background-color: #4e73df;
+  color: white;
+  font-weight: bold;
+}
+
+table tr {
+  background-color: #e2e6ea;
+  color: #333;
+  text-align: left;
+}
+
+table tr:hover {
+  background-color: #c6d0eb;
+}

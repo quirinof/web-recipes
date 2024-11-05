@@ -3,6 +3,7 @@
 <html>
   <head>
     <meta charset="UTF-8" />
+    <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
@@ -16,43 +17,38 @@
 
     //cs é um array de cervejas
 
-    const carregarDiv = (cs) => {
-      const div = document.getElementById("cervejasDiv");
+    const carregarDiv = (element, items, headers = [], properties = []) => {
+      const div = document.getElementById(element);
+      let table = "<table> <tr>";
 
-      const itensHtml = cs.map(
-        ({ name, alcohol, style, ibu }) =>
-          `<div>${name} -- ${alcohol} -- ${style} -- ${ibu}</div>`
-      );
+      for (const header of headers) {
+        table += `<th>${header}</th>`;
+      }
 
-      div.innerHTML = `${itensHtml.join("\n")}`;
+      table += "</tr>";
+
+      const itensHtml = items.map((item) => {
+        return `<tr> ${properties
+          .map((prop) => `<td>${item[prop]}</td>`)
+          .join("")} </tr>`;
+      });
+
+      table += itensHtml.join("\n");
+      table += "</table>";
+      div.innerHTML = table;
     };
-
-    // async function carregarCervejas() {
-    //   try {
-    //     let res = await fetch(
-    //       "https://random-data-api.com/api/v2/beers?size=3"
-    //     );
-
-    //     cervejas = await res.json();
-
-    //     carregarDiv(cervejas);
-    //   } catch (err) {
-    //     document.getElementById("cervejasDiv").innerHTML = "Fudeu...";
-    //   }
-    // }
-
-    // function chegouRespostaDoJson(json) {
-    // carregarDiv(json);
-    // }
-
-    // function chegouRespostaDoFetch(res) {
-    // res.json().then(chegouRespostaDoJson);
-    // }
 
     function carregarCervejas2() {
       fetch("https://random-data-api.com/api/v2/beers?size=3")
         .then((res) => res.json())
-        .then((json) => carregarDiv(json))
+        .then((json) =>
+          carregarDiv(
+            "cervejasDiv",
+            json,
+            ["Cerveja", "Estilo"],
+            ["name", "style"]
+          )
+        )
         .catch(
           (err) =>
             (document.getElementById(
@@ -65,6 +61,6 @@
 
     let botao = document.getElementById("botaoCarregar");
 
-    botao.addEventListener("click", () => carregarCervejas2());
+    botao.addEventListener("click", () => carregarCervejas2(cervejas));
   </script>
 </html>
