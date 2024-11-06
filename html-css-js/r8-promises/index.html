@@ -7,60 +7,41 @@
   </head>
 
   <body>
-    <div><button id="botaoCarregar">Carregando cervejas...</button></div>
+    <div><button id="botaoCarregar">Carregando usuarios...</button></div>
 
-    <div id="cervejasDiv"></div>
+    <div id="usuariosDiv"></div>
   </body>
 
+  <script src="./carregarTabela.js"></script>
+
   <script>
-    let cervejas = [];
+    let usuarios = [];
 
-    //cs é um array de cervejas
+    //cs é um array de usuarios
 
-    const carregarDiv = (element, items, headers = [], properties = []) => {
-      const div = document.getElementById(element);
-      let table = "<table> <tr>";
-
-      for (const header of headers) {
-        table += `<th>${header}</th>`;
-      }
-
-      table += "</tr>";
-
-      const itensHtml = items.map((item) => {
-        return `<tr> ${properties
-          .map((prop) => `<td>${item[prop]}</td>`)
-          .join("")} </tr>`;
-      });
-
-      table += itensHtml.join("\n");
-      table += "</table>";
-      div.innerHTML = table;
-    };
-
-    function carregarCervejas2() {
-      fetch("https://random-data-api.com/api/v2/beers?size=3")
+    function carregarUsuarios() {
+      fetch("https://random-data-api.com/api/v2/users?size=3")
         .then((res) => res.json())
         .then((json) =>
-          carregarDiv(
-            "cervejasDiv",
+          carregarTabela(
+            "usuariosDiv",
             json,
-            ["Cerveja", "Estilo"],
-            ["name", "style"]
+            ["Nome", "Email", "Nº Telefone"],
+            ["first_name", "email", "phone_number"]
           )
         )
         .catch(
           (err) =>
             (document.getElementById(
-              "cervejasDiv"
+              "usuariosDiv"
             ).innerHTML = `Fudeu... ${err}`)
         );
 
-      document.getElementById("cervejasDiv").innerHTML = `Fazendo requisição`;
+      document.getElementById("usuariosDiv").innerHTML = `Fazendo requisição`;
     }
 
     let botao = document.getElementById("botaoCarregar");
 
-    botao.addEventListener("click", () => carregarCervejas2(cervejas));
+    botao.addEventListener("click", () => carregarUsuarios(usuarios));
   </script>
 </html>
