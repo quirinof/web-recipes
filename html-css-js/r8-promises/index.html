@@ -20,7 +20,7 @@
     //cs é um array de usuarios
 
     function carregarUsuarios() {
-      fetch("https://random-data-api.com/api/v2/users?size=3")
+      fetch("https://random-data-api.com/api/v2/users?size=50")
         .then((res) => res.json())
         .then((json) =>
           carregarTabela(
