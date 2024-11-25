@@ -18,12 +18,21 @@
           "h1",
           { id: "my-heading" },
           React.createElement(
-            "span",
+            "table",
             null,
-            "React ",
-            React.createElement("em", null, "é muito")
-          ),
-          " massa!"
+            React.createElement(
+              "tr",
+              null,
+              React.createElement("th", null, "Refri"),
+              React.createElement("th", null, "Cerveja")
+            ),
+            React.createElement(
+              "tr",
+              null,
+              React.createElement("td", null, "Coca"),
+              React.createElement("td", null, "Heineken")
+            )
+          )
         ),
         document.getElementById("app")
       );
