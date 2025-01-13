@@ -9,7 +9,15 @@
     <script src="libs/react.js"></script>
     <script src="libs/react-dom.js"></script>
     <script src="libs/babel.js"></script>
+
     <script type="text/babel">
+      const bebidas = [
+        { nome: "Havana", marca: "Engenho Anísio Santiago" },
+        { nome: "Velho Barreiro", marca: "Indústrias Reunidas de Bebidas" },
+        { nome: "51", marca: "Companhia Müller de Bebidas" },
+        { nome: "Ypióca", marca: "Ypióca Agroindustrial" },
+      ];
+
       const TabelaBebidas = () => {
         return (
           <table id="tabela" border="1">
@@ -20,29 +28,28 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>Havana</td>
-                <td>Engenho Anísio Santiago</td>
-              </tr>
+              {bebidas.map((bebida, index) => (
+                <tr>
+                  <td>{bebida.nome}</td>
+                  <td>{bebida.marca}</td>
+                </tr>
+              ))}
             </tbody>
           </table>
         );
       };
 
-      const Cabecalho = () => {
-        return <h1>Minha tabela de bebidas</h1>;
+      const renderizarTabela = () => {
+        ReactDOM.render(<TabelaBebidas />, document.getElementById("app"));
       };
 
-      const App = () => {
+      const BotaoRenderizar = () => {
         return (
-          <>
-            <Cabecalho />
-            <TabelaBebidas />
-          </>
+          <button onClick={renderizarTabela}>Mostrar Tabela de Bebidas</button>
         );
       };
 
-      ReactDOM.render(<App />, document.getElementById("app"));
+      ReactDOM.render(<BotaoRenderizar />, document.getElementById("app"));
     </script>
   </body>
 </html>
