@@ -1,65 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>ReactZero</title>
-    <!-- Importação do Bootstrap via CDN -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-    />
-  </head>
-  <body class="bg-light">
-    <div id="app" class="container mt-5 text-center"></div>
 
-    <!-- Scripts React -->
+<html>
+  <head>
+    <title>ReceitaReact - Classes</title>
+  </head>
+
+  <body>
+    <div id="app"></div>
+
     <script src="libs/react.js"></script>
+
     <script src="libs/react-dom.js"></script>
+
     <script src="libs/babel.js"></script>
 
     <script type="text/babel">
-      const bebidas = [
-        { nome: "Havana", marca: "Engenho Anísio Santiago" },
-        { nome: "Velho Barreiro", marca: "Indústrias Reunidas de Bebidas" },
-        { nome: "51", marca: "Companhia Müller de Bebidas" },
-        { nome: "Ypióca", marca: "Ypióca Agroindustrial" },
-      ];
+      class TabelaBebidas extends React.Component {
+        render() {
+          return (
+            <div>
+              <table id="tabela" border="1">
+                <thead>
+                  <tr>
+                    <th>Nome</th>
+                    <th>Marca</th>
+                  </tr>
+                </thead>
 
-      const TabelaBebidas = () => {
+                <tbody>
+                  <tr>
+                    <td>Havana</td>
+                    <td>Engenho Anísio Santiago</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          );
+        }
+      }
+
+      const TabelaBebidas__ = () => {
         return (
-          <div className="table-responsive">
-            <table className="table table-striped table-bordered mt-3">
-              <thead className="table-dark">
+          <div>
+            <h1>Tabela de Bebidas</h1>
+            <table id="tabela" border="1">
+              <thead>
                 <tr>
-                  <th scope="col">Nome</th>
-                  <th scope="col">Marca</th>
+                  <th>Nome</th>
+                  <th>Marca</th>
                 </tr>
               </thead>
               <tbody>
-                {bebidas.map((bebida, index) => (
-                  <tr key={index}>
-                    <td>{bebida.nome}</td>
-                    <td>{bebida.marca}</td>
-                  </tr>
-                ))}
+                <tr>
+                  <td>Havana</td>
+                  <td>Engenho Anísio Santiago</td>
+                </tr>
               </tbody>
             </table>
           </div>
         );
       };
 
-      const renderizarTabela = () => {
-        ReactDOM.render(<TabelaBebidas />, document.getElementById("app"));
-      };
+      ReactDOM.render(
+        <TabelaBebidas />,
 
-      const BotaoRenderizar = () => {
-        return (
-          <button className="btn btn-primary btn-lg" onClick={renderizarTabela}>
-            Mostrar Tabela de Bebidas
-          </button>
-        );
-      };
-
-      ReactDOM.render(<BotaoRenderizar />, document.getElementById("app"));
+        document.getElementById("app")
+      );
     </script>
   </body>
 </html>
