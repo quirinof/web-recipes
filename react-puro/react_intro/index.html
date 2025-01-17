@@ -15,6 +15,16 @@
     <script src="libs/babel.js"></script>
 
     <script type="text/babel">
+      class Cabecalho extends React.Component {
+        render() {
+          return (
+            <header className="text-center my-4">
+              <h1 className="text-center my-3">{this.props.titulo}</h1>
+              <p className="lead">beba com moderação</p>
+            </header>
+          );
+        }
+      }
       class TabelaBebidas extends React.Component {
         render() {
           return (
@@ -39,33 +49,52 @@
         }
       }
 
-      const TabelaBebidas__ = () => {
-        return (
-          <div>
-            <h1>Tabela de Bebidas</h1>
-            <table id="tabela" border="1">
-              <thead>
-                <tr>
-                  <th>Nome</th>
-                  <th>Marca</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Havana</td>
-                  <td>Engenho Anísio Santiago</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        );
-      };
+      class BotaoInterativo extends React.Component {
+        handleClick() {
+          alert("Você clicou no botão!");
+        }
 
-      ReactDOM.render(
-        <TabelaBebidas />,
+        render() {
+          return (
+            <div className="text-center my-4">
+              <button
+                className="btn btn-primary"
+                onClick={() => this.handleClick()}
+              >
+                Clique Aqui
+              </button>
+            </div>
+          );
+        }
+      }
 
-        document.getElementById("app")
-      );
+      class ListaBebidas extends React.Component {
+        render() {
+          const bebidas = ["Caranguejo", "Pitu", "51", "Ypioca"];
+          return (
+            <ul className="list-group my-4">
+              {bebidas.map((bebida, index) => (
+                <li className="list-group-item">{bebida}</li>
+              ))}
+            </ul>
+          );
+        }
+      }
+
+      class App extends React.Component {
+        render() {
+          return (
+            <div>
+              <Cabecalho titulo="Tabela de Cana" />
+              <TabelaBebidas />
+              <BotaoInterativo />
+              <ListaBebidas />
+            </div>
+          );
+        }
+      }
+
+      ReactDOM.render(<App />, document.getElementById("app"));
     </script>
   </body>
 </html>
