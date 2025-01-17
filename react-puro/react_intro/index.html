@@ -1,11 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>ReactZero</title>
+    <!-- Importação do Bootstrap via CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    />
   </head>
-  <body>
-    <div id="app"></div>
+  <body class="bg-light">
+    <div id="app" class="container mt-5 text-center"></div>
 
+    <!-- Scripts React -->
     <script src="libs/react.js"></script>
     <script src="libs/react-dom.js"></script>
     <script src="libs/babel.js"></script>
@@ -20,22 +26,24 @@
 
       const TabelaBebidas = () => {
         return (
-          <table id="tabela" border="1">
-            <thead>
-              <tr>
-                <th>Nome</th>
-                <th>Marca</th>
-              </tr>
-            </thead>
-            <tbody>
-              {bebidas.map((bebida, index) => (
+          <div className="table-responsive">
+            <table className="table table-striped table-bordered mt-3">
+              <thead className="table-dark">
                 <tr>
-                  <td>{bebida.nome}</td>
-                  <td>{bebida.marca}</td>
+                  <th scope="col">Nome</th>
+                  <th scope="col">Marca</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {bebidas.map((bebida, index) => (
+                  <tr key={index}>
+                    <td>{bebida.nome}</td>
+                    <td>{bebida.marca}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         );
       };
 
@@ -45,7 +53,9 @@
 
       const BotaoRenderizar = () => {
         return (
-          <button onClick={renderizarTabela}>Mostrar Tabela de Bebidas</button>
+          <button className="btn btn-primary btn-lg" onClick={renderizarTabela}>
+            Mostrar Tabela de Bebidas
+          </button>
         );
       };
 
